@@ -60,7 +60,7 @@ ollama pull llama3.2
 ### Run with Docker
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/local-ai-doc-assistant.git
+git clone https://github.com/MythriReddy510/local-ai-doc-assistant.git
 cd local-ai-doc-assistant
 docker-compose up --build
 ```
