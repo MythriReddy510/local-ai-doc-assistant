@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+
+  # Your FastAPI application
+  app:
+    build: .
+    container_name: ai-doc-assistant
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./chroma_db:/app/chroma_db
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+
+  # Ollama running as a separate service
+  ollama:
+    image: ollama/ollama
+    container_name: ollama-service
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+
+volumes:
+  ollama_data:
